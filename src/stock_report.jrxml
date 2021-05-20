@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7aa1b090-8f13-4ffc-9230-7d395e1e6cbb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     product.`item_name` AS product_item_name,
+     product.`batch_number` AS product_batch_number,
+     product.`company` AS product_company,
+     product.`mfd_on` AS product_mfd_on,
+     product.`net_weight` AS product_net_weight,
+     product.`exp_date` AS product_exp_date,
+     product.`rate` AS product_rate,
+     product.`GST` AS product_GST,
+     product.`Total_MRP` AS product_Total_MRP,
+     stock.`item_name` AS stock_item_name,
+     stock.`stock_available` AS stock_stock_available
+FROM
+     `product` product,
+     `stock` stock
+WHERE 
+	product.`item_name`=stock.`item_name`]]>
+	</queryString>
+	<field name="product_item_name" class="java.lang.String"/>
+	<field name="product_batch_number" class="java.lang.String"/>
+	<field name="product_company" class="java.lang.String"/>
+	<field name="product_mfd_on" class="java.lang.String"/>
+	<field name="product_net_weight" class="java.lang.String"/>
+	<field name="product_exp_date" class="java.lang.String"/>
+	<field name="product_rate" class="java.lang.String"/>
+	<field name="product_GST" class="java.lang.String"/>
+	<field name="product_Total_MRP" class="java.lang.String"/>
+	<field name="stock_item_name" class="java.lang.String"/>
+	<field name="stock_stock_available" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="66" uuid="1a943715-0de5-4999-8700-e8b93250e517"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Calligraphy" size="48"/>
+				</textElement>
+				<text><![CDATA[S K Enterprise]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="69" width="555" height="20" uuid="bca1f5aa-bd67-4f64-aa55-f917a002e950"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Stock Report]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="114" width="224" height="20" uuid="d5fd85bb-f273-4164-a7ac-a82e80dd459d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="114" width="48" height="20" uuid="0e67e176-1213-42fb-9f30-a4d0764da29d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="114" width="38" height="20" uuid="02defe7c-5919-420b-8ac4-09b8b5edb47d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[GST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="114" width="81" height="20" uuid="71f946d2-68ed-454d-af6d-b5d5234817bb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Total MRP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="114" width="129" height="20" uuid="ab07a62c-68c0-4f09-9f6b-1c17d06207b0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Quantity Available]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="111" width="555" height="1" uuid="4e4b7b50-5cba-4a2a-9f7b-94a2706bbf5e"/>
+			</line>
+			<line>
+				<reportElement x="0" y="135" width="555" height="1" uuid="17167ba3-92d8-41b2-ba13-4ae64f6b2cf9"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="4" width="223" height="20" uuid="0f208c85-b8d3-4e43-961e-5358385cad40"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="4" width="48" height="20" uuid="32a0da4a-b3c9-49f5-81f8-a259dc373219"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="292" y="4" width="38" height="20" uuid="50f4577a-3def-458e-bd0b-05999bf48435"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_GST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="4" width="81" height="20" uuid="73bf3753-6d9e-4d76-872f-80f6fc094fef"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_Total_MRP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="4" width="129" height="20" uuid="f7ea5ac8-acb5-4526-bd70-34d1087bd66e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{stock_stock_available}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

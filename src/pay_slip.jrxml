@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a7833c36-f775-4ceb-abab-bafd5f457cef">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="inv_no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     payment.`cus_name` AS payment_cus_name,
+     payment.`date` AS payment_date,
+     payment.`invoice_no` AS payment_invoice_no,
+     payment.`total_amount` AS payment_total_amount,
+     payment.`total_tax` AS payment_total_tax,
+     payment.`discount` AS payment_discount,
+     payment.`net_amount` AS payment_net_amount,
+     payment.`amount_paid` AS payment_amount_paid,
+     payment.`balance` AS payment_balance,
+     payment.`pay_slip_no` AS payment_pay_slip_no,
+     payment.`pay_mode` AS payment_pay_mode
+FROM
+     `payment` payment
+WHERE payment.`invoice_no`= $P{inv_no}]]>
+	</queryString>
+	<field name="payment_cus_name" class="java.lang.String"/>
+	<field name="payment_date" class="java.lang.String"/>
+	<field name="payment_invoice_no" class="java.lang.String"/>
+	<field name="payment_total_amount" class="java.lang.String"/>
+	<field name="payment_total_tax" class="java.lang.String"/>
+	<field name="payment_discount" class="java.lang.String"/>
+	<field name="payment_net_amount" class="java.lang.String"/>
+	<field name="payment_amount_paid" class="java.lang.String"/>
+	<field name="payment_balance" class="java.lang.String"/>
+	<field name="payment_pay_slip_no" class="java.lang.String"/>
+	<field name="payment_pay_mode" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="173" splitType="Stretch">
+			<staticText>
+				<reportElement x="417" y="1" width="137" height="20" uuid="e9f3fefc-21f2-41fa-a524-ec5bcd0f2117"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Mobile:9957278774]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="3" width="100" height="20" uuid="e3c02b48-bafe-4b82-aaa2-6caa1ca8672b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[  Payment Slip]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="4" width="100" height="20" uuid="a57867ae-0317-46a3-b2b4-1014f32c5503"/>
+				<textElement verticalAlignment="Middle">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_pay_slip_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="6" y="5" width="38" height="20" uuid="f630ef98-bf8b-405d-81d3-232331e3e13d"/>
+				<textElement>
+					<font fontName="Times New Roman" size="15"/>
+				</textElement>
+				<text><![CDATA[Sl No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="122" width="555" height="20" uuid="2d525df8-0af7-4a64-aec7-dafca7325636"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ghoniwala, Masjied Road, P.O. Malugram Silchar-2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="144" width="555" height="26" uuid="19b3d9f5-9885-4429-a931-c25da95cb471"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="19"/>
+				</textElement>
+				<text><![CDATA[Deals In: Photo And Xerox]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="203" splitType="Stretch">
+			<textField>
+				<reportElement x="302" y="102" width="59" height="20" uuid="458027dd-2519-46d5-a2ad-8cb8b3ee6dea"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_amount_paid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="56" y="35" width="163" height="20" uuid="45245bc5-4284-47ed-a49d-a531e7a55a8b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="211" y="104" width="82" height="18" uuid="69c6830d-0e24-4e33-9866-de4383eba1cc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Amount Paid]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="481" y="102" width="59" height="20" uuid="d40b9132-5dc0-4052-a62c-150713e42838"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_balance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="101" width="93" height="20" uuid="081251d4-2655-4a23-81c7-dbb12100f31a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_net_amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="-139" width="555" height="85" uuid="9ec4e768-93c4-4ee4-848e-4657f041d0bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Lucida Calligraphy" size="62"/>
+				</textElement>
+				<text><![CDATA[ S.K. Enterprise]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="75" width="58" height="18" uuid="1ffd081b-e970-4b28-8132-d757852361cc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="348" y="35" width="163" height="20" uuid="2f197dbb-da56-493b-82b4-55c8139dc749"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_invoice_no}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="424" y="177" width="119" height="20" uuid="3bd0c65c-162c-42c0-b7d3-092cd3eea936"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[S K Enterprise]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="101" y="70" width="93" height="20" uuid="0c6e07cb-70b0-4005-b630-c8e8e29d9870"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_total_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="72" width="59" height="20" uuid="80b2c09e-fc75-4fab-9cad-a4f4caec333c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_total_tax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="481" y="73" width="59" height="20" uuid="d06e641a-c141-4dd2-a6e8-a4e1419683db"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="135" width="93" height="20" uuid="2bdc3498-e048-434c-9a33-eeba2c424df2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_pay_mode}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="9" y="136" width="97" height="18" uuid="c6b161ed-17f8-4714-a40c-2e51c608b803"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Payment Mode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="72" width="83" height="18" uuid="266489f7-b30c-4ee8-9085-de9c948f380e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="413" y="104" width="58" height="18" uuid="b6a1c7a6-3349-49d7-beca-4b72366c4c40"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="273" y="35" width="68" height="18" uuid="304a76de-a5b8-47a5-9f87-e822207de7cc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Invoice No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="74" width="58" height="18" uuid="5ee42bd9-df02-419c-ac1a-a8ea468c7aa1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Total Tax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="103" width="83" height="18" uuid="c501ac72-e596-41a0-bd90-9c8f5e504cd7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Net Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="9" y="35" width="40" height="18" uuid="d71c2edc-6855-40f9-a9fc-105719ed8e20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="7" y="6" width="100" height="18" uuid="fc9e7324-6ea6-4590-a52b-3b070a4c4a3e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="119" y="6" width="398" height="20" uuid="ae0947c4-1d1f-4258-9bf0-387aab89ff70"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{payment_cus_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="250" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a981ed57-e859-4451-b883-40d534795999">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="item_naam" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     product.`item_name` AS product_item_name,
+     product.`batch_number` AS product_batch_number,
+     product.`company` AS product_company,
+     product.`mfd_on` AS product_mfd_on,
+     product.`net_weight` AS product_net_weight,
+     product.`exp_date` AS product_exp_date,
+     product.`rate` AS product_rate,
+     product.`GST` AS product_GST,
+     product.`Total_MRP` AS product_Total_MRP
+FROM
+     `product` product
+WHERE product.`item_name`=$P{item_naam}]]>
+	</queryString>
+	<field name="product_item_name" class="java.lang.String"/>
+	<field name="product_batch_number" class="java.lang.String"/>
+	<field name="product_company" class="java.lang.String"/>
+	<field name="product_mfd_on" class="java.lang.String"/>
+	<field name="product_net_weight" class="java.lang.String"/>
+	<field name="product_exp_date" class="java.lang.String"/>
+	<field name="product_rate" class="java.lang.String"/>
+	<field name="product_GST" class="java.lang.String"/>
+	<field name="product_Total_MRP" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="69" uuid="c9a40b3b-58f0-4263-9ec7-7b7302db9ff9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI Light" size="48"/>
+				</textElement>
+				<text><![CDATA[Product Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="133" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="10" width="52" height="20" uuid="38af65fd-caf9-4d47-a399-e065558179c0"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="323" y="10" width="100" height="20" uuid="ed66d388-2690-4a5d-92ee-30a9dfda6682"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Batch Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="42" width="100" height="20" uuid="717b40bb-7675-4680-91ae-9b6d2e1b0b7c"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Company]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="178" y="106" width="28" height="20" uuid="ac21810a-903c-448f-abc5-7524c8ddafe5"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="106" width="33" height="20" uuid="621c39d6-30fc-4c69-8e6f-7676e702f5bb"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[GST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="408" y="106" width="69" height="20" uuid="db27d45d-e411-4895-9115-f2492f11b0b2"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Total MRP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="73" width="100" height="20" uuid="94b596d0-14a7-406c-90ad-215bed61a063"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Manufactured On]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="237" y="73" width="143" height="20" uuid="998e787c-16e2-4a7b-8492-7da1e825d448"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Expiry Date/Best Before]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="106" width="70" height="20" uuid="e11744d5-1882-43b7-a921-934b981ea524"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Net Weight]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="10" width="226" height="20" uuid="f0de5d09-ae4a-4ef2-baf8-c7006005a923"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="10" width="110" height="20" uuid="74c8aeaa-9c29-4071-a754-358c637d29a6"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_batch_number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="42" width="319" height="20" uuid="ae281c0d-86ee-46bd-9b12-7c28fc3b56e1"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_company}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="73" width="85" height="20" uuid="56fc5743-0f63-4764-8f6c-49dc8a4f64a8"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_mfd_on}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="398" y="73" width="99" height="20" uuid="5e931f08-558b-4e74-80d3-bfdca32d5602"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_exp_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="94" y="106" width="63" height="20" uuid="d9add6c1-958b-4897-bca3-f8d283183b06"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_net_weight}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="212" y="106" width="59" height="20" uuid="67aff49c-6108-4116-ba0e-ae6681d272e6"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="333" y="106" width="40" height="20" uuid="79c6ff2a-854c-47fd-bd05-4e3da3ce41b4"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_GST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="477" y="106" width="50" height="20" uuid="255269a6-d7f3-43ae-bc29-a6390e814b80"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_Total_MRP}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

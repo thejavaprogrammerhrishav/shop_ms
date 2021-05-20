@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="250" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9445a0b5-618d-4c05-a2a9-b7b976775f35">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="cus_naam" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     account.`name` AS account_name,
+     account.`contact` AS account_contact,
+     account.`email` AS account_email,
+     account.`balance` AS account_balance
+FROM
+     `account` account
+WHERE 
+     account.`name`=$P{cus_naam}]]>
+	</queryString>
+	<field name="account_name" class="java.lang.String"/>
+	<field name="account_contact" class="java.lang.String"/>
+	<field name="account_email" class="java.lang.String"/>
+	<field name="account_balance" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="114" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="113" uuid="0a343b5f-c188-4c6f-a4c9-2196a1ab2c41"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Calligraphy" size="40"/>
+				</textElement>
+				<text><![CDATA[Customer Account Details]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="72" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="0" width="115" height="20" uuid="2159e960-82d8-43ec-829a-ab20093182f2"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="143" y="0" width="357" height="20" uuid="277faf0b-9601-488f-8c78-539a34743e0c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{account_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="23" width="42" height="20" uuid="3266326d-7e50-4473-ad5b-b52fa5892300"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="74" y="23" width="330" height="20" uuid="dfd3d9a2-f672-4ef9-adb3-758af99e1075"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{account_email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="47" width="57" height="20" uuid="b164309b-ba23-4760-a44d-c7ae604f56d2"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Contact]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="47" width="133" height="20" uuid="ecf9498e-4efe-49e1-a71e-ad959c4df7e8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{account_contact}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="320" y="47" width="56" height="20" uuid="63f73c14-9912-4c73-9889-061723b3144b"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Balance]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="386" y="47" width="131" height="20" uuid="3d3d1fe6-491e-4d6b-ba61-ac9804c27818"/>
+				<textElement verticalAlignment="Middle">
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{account_balance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

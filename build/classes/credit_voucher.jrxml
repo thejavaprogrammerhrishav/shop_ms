@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1587078c-7b94-4580-a5d0-927f7ba5906f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="voucher" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     voucher.`name` AS voucher_name,
+     voucher.`date` AS voucher_date,
+     voucher.`voucher_number` AS voucher_voucher_number,
+     voucher.`sub_total` AS voucher_sub_total,
+     voucher.`total_tax` AS voucher_total_tax,
+     voucher.`net_amount` AS voucher_net_amount,
+     voucher_contents.`voucher_number` AS voucher_contents_voucher_number,
+     voucher_contents.`sl_no` AS voucher_contents_sl_no,
+     voucher_contents.`item_name` AS voucher_contents_item_name,
+     voucher_contents.`rate` AS voucher_contents_rate,
+     voucher_contents.`GST` AS voucher_contents_GST,
+     voucher_contents.`qty` AS voucher_contents_qty,
+     voucher_contents.`total` AS voucher_contents_total
+FROM
+     `voucher` voucher,
+     `voucher_contents` voucher_contents
+WHERE 
+       voucher.`voucher_number`=$P{voucher}
+AND 
+       voucher_contents.`voucher_number`=$P{voucher}]]>
+	</queryString>
+	<field name="voucher_name" class="java.lang.String"/>
+	<field name="voucher_date" class="java.lang.String"/>
+	<field name="voucher_voucher_number" class="java.lang.String"/>
+	<field name="voucher_sub_total" class="java.lang.String"/>
+	<field name="voucher_total_tax" class="java.lang.String"/>
+	<field name="voucher_net_amount" class="java.lang.String"/>
+	<field name="voucher_contents_voucher_number" class="java.lang.String"/>
+	<field name="voucher_contents_sl_no" class="java.lang.String"/>
+	<field name="voucher_contents_item_name" class="java.lang.String"/>
+	<field name="voucher_contents_rate" class="java.lang.String"/>
+	<field name="voucher_contents_GST" class="java.lang.String"/>
+	<field name="voucher_contents_qty" class="java.lang.String"/>
+	<field name="voucher_contents_total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="97" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="121" height="20" uuid="ac5adc59-97e9-43f6-99c6-2de429acb076"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Voucher Number]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="0" width="100" height="20" uuid="e00adeb1-90db-459a-bcae-c02c71af9dfd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_voucher_number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="357" y="0" width="198" height="20" uuid="ac034f60-6cd8-450a-a3e9-23296f42ee3a"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Mobile Number: 9957278774]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="22" width="555" height="52" uuid="71f4f336-984e-43f9-8520-ee200d4bbcc4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Lucida Calligraphy" size="36"/>
+				</textElement>
+				<text><![CDATA[S K Enterprise]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="76" width="555" height="20" uuid="8ea66aac-0ac5-42d4-8cff-38982a53922d"/>
+				<textElement textAlignment="Center">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Credit Voucher]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="83" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="2" width="118" height="20" uuid="7037d8af-8698-47b5-ae46-075420628b2c"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="28" width="50" height="20" uuid="a4c02dc1-b8e1-412e-9843-2d471cea1acf"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="121" y="28" width="172" height="20" uuid="272e14b6-c303-4ff4-aeaa-7ab48767ef82"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_date}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="61" width="555" height="1" uuid="cde7263f-938a-4806-9879-591b0361410b"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="62" width="53" height="20" uuid="012411a9-1e9d-4607-b240-11142e5a4d1f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Sl No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="61" width="225" height="20" uuid="a397ad44-0e87-4b40-b3b1-058ed9e3f14a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="61" width="41" height="20" uuid="79d4c049-61ec-44f9-a62f-7d93b577b4dd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="61" width="47" height="20" uuid="d37ed5f7-426f-4c2e-ae97-049373d2bf16"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[GST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="436" y="61" width="53" height="20" uuid="58128973-67c3-4bd7-8fe5-4fde929212cd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="497" y="62" width="58" height="20" uuid="c13db8d9-b266-4c5f-9ae9-ad97f05ab79c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="82" width="555" height="1" uuid="9116a90a-3fd2-4d30-8b69-23d3dbbc660a"/>
+			</line>
+			<textField>
+				<reportElement x="121" y="4" width="394" height="20" uuid="41225a4a-6d5a-43cd-ab0a-545192040eeb"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="6" y="2" width="50" height="20" uuid="559824cc-1e51-41de-8659-1cafdfc951cc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_contents_sl_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="2" width="223" height="20" uuid="e1ec6102-5259-46c2-8289-516cfaf0fd9c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_contents_item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="2" width="39" height="20" uuid="8054248f-0cdc-42b4-9db4-ee6b833f73a4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_contents_rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="2" width="42" height="20" uuid="f7f63758-d882-4719-a8df-21b905f1ad78"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_contents_GST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="2" width="47" height="20" uuid="525807cc-dc18-41c7-acc4-88f18d541464"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_contents_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="2" width="54" height="20" uuid="c95df389-2508-4035-ad21-d62f4f755d22"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_contents_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="154" splitType="Stretch">
+			<staticText>
+				<reportElement x="370" y="16" width="100" height="20" uuid="f306aba5-daf8-48dd-8b13-839c373f7f7e"/>
+				<textElement textAlignment="Right">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Sub Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="371" y="36" width="100" height="20" uuid="e03ca5c4-c73a-4e5d-9a4d-3f1faf958482"/>
+				<textElement textAlignment="Right">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Total Tax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="56" width="100" height="20" uuid="530ab74e-1142-4f6f-b48f-7666264775c0"/>
+				<textElement textAlignment="Right">
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Net Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="489" y="16" width="55" height="20" uuid="1d24e2a0-c8a4-4c3b-84db-56e7400a0d7c"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_sub_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="491" y="36" width="53" height="20" uuid="8a68cecc-452d-4d00-9010-c3306b019b02"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_total_tax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="56" width="55" height="20" uuid="65e0db72-061f-40ec-9799-d39ffdf551f8"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{voucher_net_amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="459" y="130" width="74" height="20" uuid="5164fa61-63f9-4535-9fe1-97675ddcaca6"/>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<text><![CDATA[Signature ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="2" width="555" height="1" uuid="f525e929-03ca-49ac-b3ff-ce914806e3db"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

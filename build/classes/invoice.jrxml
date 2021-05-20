@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="86a5a4c0-e1b8-4c49-866c-01c9990b33b8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="inv_no" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     purchase.`cus_name` AS purchase_cus_name,
+     purchase.`date` AS purchase_date,
+     purchase.`invoice_no` AS purchase_invoice_no,
+     purchase.`total_amount` AS purchase_total_amount,
+     purchase.`total_tax` AS purchase_total_tax,
+     purchase.`discount` AS purchase_discount,
+     purchase.`net_amount` AS purchase_net_amount,
+     purchase_content.`sl_no` AS purchase_content_sl_no,
+     purchase_content.`item_name` AS purchase_content_item_name,
+     purchase_content.`rate` AS purchase_content_rate,
+     purchase_content.`GST` AS purchase_content_GST,
+     purchase_content.`qty` AS purchase_content_qty,
+     purchase_content.`total` AS purchase_content_total,
+     purchase_content.`invoice_no` AS purchase_content_invoice_no
+FROM
+     `purchase` purchase,
+     `purchase_content` purchase_content
+WHERE
+      purchase.`invoice_no`=$P{inv_no}
+AND   
+      purchase_content.`invoice_no`=$P{inv_no}]]>
+	</queryString>
+	<field name="purchase_cus_name" class="java.lang.String"/>
+	<field name="purchase_date" class="java.lang.String"/>
+	<field name="purchase_invoice_no" class="java.lang.String"/>
+	<field name="purchase_total_amount" class="java.lang.String"/>
+	<field name="purchase_total_tax" class="java.lang.String"/>
+	<field name="purchase_discount" class="java.lang.String"/>
+	<field name="purchase_net_amount" class="java.lang.String"/>
+	<field name="purchase_content_sl_no" class="java.lang.String"/>
+	<field name="purchase_content_item_name" class="java.lang.String"/>
+	<field name="purchase_content_rate" class="java.lang.String"/>
+	<field name="purchase_content_GST" class="java.lang.String"/>
+	<field name="purchase_content_qty" class="java.lang.String"/>
+	<field name="purchase_content_total" class="java.lang.String"/>
+	<field name="purchase_content_invoice_no" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<image>
+				<reportElement x="275" y="0" width="300" height="64" uuid="5586c9af-db58-4d49-94b5-26f6ccc942bb"/>
+				<imageExpression><![CDATA["leaf_banner_green.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="5" y="1" width="263" height="33" uuid="536717ce-a447-4b49-b258-104a4fbccfc3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[S K Enterprise]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="5" y="41" width="130" height="22" uuid="3235cedf-2387-450c-8d42-4bef94f6e84c"/>
+				<text><![CDATA[Invoice Receipt]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="43" width="120" height="20" uuid="de6d29ae-e2d8-41e5-a893-615f64dc618e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchase_invoice_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="1" y="38" width="39" height="15" uuid="e11eee14-429e-43f1-89c7-1d3430faaf99"/>
+				<text><![CDATA[Sl No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="61" y="38" width="204" height="15" uuid="bc7b1192-2d20-47de-82b6-3d3c969ecea0"/>
+				<text><![CDATA[Item Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="318" y="38" width="39" height="15" uuid="553d50a4-2a1d-4dd4-93cd-928a194fea6d"/>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="377" y="38" width="37" height="15" uuid="f61deac5-568e-476d-a8e7-609563d4728b"/>
+				<text><![CDATA[GST]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="424" y="38" width="52" height="15" uuid="f2d4669b-50d2-4b2d-90e0-960687ad69e3"/>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="485" y="38" width="39" height="15" uuid="cf208717-8f88-484f-8f70-45720a905fcc"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="9" width="100" height="20" uuid="555b4a12-5398-47e3-a435-1eb3454cbd52"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="9" width="34" height="20" uuid="8dccd35b-0691-4c0d-b47f-fbcabdf5962b"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="433" y="9" width="120" height="20" uuid="57fb8a9f-3d17-463c-b4dd-8f1b8b62ec3c"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchase_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="101" y="9" width="298" height="20" uuid="ed03c200-2904-4e4e-9e51-a3a0006ba74e"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchase_cus_name}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="58" width="555" height="1" uuid="54284748-ff0d-4ce3-8d70-a7971ea17b3e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="2" y="5" width="39" height="15" uuid="ded6318f-61d5-40ce-ad2a-15db55323fae"/>
+				<textFieldExpression><![CDATA[$F{purchase_content_sl_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="60" y="5" width="233" height="15" uuid="727f2a06-a1ca-465b-9852-43a037610e86"/>
+				<textFieldExpression><![CDATA[$F{purchase_content_item_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="318" y="5" width="51" height="15" uuid="748f81b9-e158-47cb-84ef-15c43d6448ab"/>
+				<textFieldExpression><![CDATA[$F{purchase_content_rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="375" y="5" width="39" height="15" uuid="06e79c13-28cd-42e6-87ca-b3e4f5de0408"/>
+				<textFieldExpression><![CDATA[$F{purchase_content_GST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="424" y="5" width="52" height="15" uuid="535f746b-de5e-4989-ba3e-1aa927a2bd03"/>
+				<textFieldExpression><![CDATA[$F{purchase_content_qty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="485" y="5" width="59" height="15" uuid="a571dc0f-e2c9-4640-b449-8ee1a5a6e166"/>
+				<textFieldExpression><![CDATA[$F{purchase_content_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="113" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="2a9b01fe-bc6c-40c6-baab-62759e521baf"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="346" y="15" width="100" height="20" uuid="11b1d8b9-cc9f-4f47-865f-1a4a3713b348"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="40" width="100" height="20" uuid="c4916258-9ccd-49b0-8ab4-f8dce6b0ace9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Tax]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="64" width="100" height="20" uuid="4c8aae77-cad2-4e06-99f3-5ca09ec9be54"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="346" y="88" width="100" height="20" uuid="d7583a41-d40c-41b0-a9ac-b3f15496d97d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Net Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="451" y="14" width="100" height="20" uuid="387b933f-6ac7-49ff-a3fd-884c8e47169a"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchase_total_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="39" width="100" height="20" uuid="974d086e-1dd7-48bd-8bb3-64dd71554791"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchase_total_tax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="64" width="100" height="20" uuid="1e6f71e8-6acf-4dfa-89bd-900846f68ccf"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchase_discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="87" width="100" height="20" uuid="c0eec7e1-be06-4cc7-9fe8-1e55e9ba1be4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{purchase_net_amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="88" width="130" height="20" uuid="f457836a-796f-4bd0-85f8-30629e00f9e3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Signature]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
